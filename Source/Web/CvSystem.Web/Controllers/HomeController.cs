@@ -118,6 +118,38 @@
             return this.View("AddEducation", new EducationInputModel());
         }
 
+        public ActionResult AddEducation(EducationInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            var cv = this.cvs.GetChoosen().FirstOrDefault();
+            var education = this.Mapper.Map<Education>(model);
+
+            cv.Educations.Add(education);
+            this.cvs.Update();
+
+            return this.View("AddCourse", new EducationIdViewModel() { Id = education.Id });
+        }
+
+        public ActionResult AddCourse(int educationId, string[] courses)
+        {
+            var coursesList = new List<Course>();
+            foreach (var course in courses)
+            {
+                coursesList.Add(new Course() { CourseName = course });
+            }
+
+            var education = this.educations.GetById(educationId);
+            education.Courses = coursesList;
+            this.educations.Update();
+
+            var url = "CvsHistory";
+            return this.Json(new { Url = url });
+        }
+
         /// <summary>
         /// Set choosen CV like default on main page.
         /// </summary>
@@ -153,38 +185,6 @@
 
             var viewModel = this.GetIndexModel(cv);
             return this.View("Index", viewModel);
-        }
-
-        public ActionResult AddEducation(EducationInputModel model)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.View(model);
-            }
-
-            var cv = this.cvs.GetChoosen().FirstOrDefault();
-            var education = this.Mapper.Map<Education>(model);
-
-            cv.Educations.Add(education);
-            this.cvs.Update();
-
-            return this.View("AddCourse", new EducationIdViewModel() { Id = education.Id });
-        }
-
-        public ActionResult AddCourse(int educationId, string[] courses)
-        {
-            var coursesList = new List<Course>();
-            foreach (var course in courses)
-            {
-                coursesList.Add(new Course() { CourseName = course });
-            }
-
-            var education = this.educations.GetById(educationId);
-            education.Courses = coursesList;
-            this.educations.Update();
-
-            var url = "CvsHistory";
-            return this.Json(new { Url = url });
         }
 
         private IndexViewModel GetIndexModel(CurriculumVitae cv)
