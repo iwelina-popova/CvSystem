@@ -1,7 +1,6 @@
 ﻿namespace CvSystem.Web.ViewModels.Home
 {
     using System;
-    using System.Collections.Generic;
 
     using CvSystem.Data.Models;
     using CvSystem.Web.Infrastructure.Mapping;

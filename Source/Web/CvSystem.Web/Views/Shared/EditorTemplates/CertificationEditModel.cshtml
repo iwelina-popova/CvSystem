@@ -54,6 +54,14 @@
         @Html.TextBoxFor(m => m.To, new { @class = "form-control datepicker" })
     </div>
 </div>
+<div class="col-md-8 col-md-offset-2 form-group">
+    <div class="col-md-3">
+        Delete
+    </div>
+    <div class="col-md-9">
+        @Html.EditorFor(m => m.IsDeleted)
+    </div>
+</div>
 <div class="col-md-8 col-md-offset-2">
     <hr />
 </div>

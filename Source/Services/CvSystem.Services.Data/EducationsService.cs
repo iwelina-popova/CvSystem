@@ -22,5 +22,18 @@
                 .Where(e => e.CvId == cvId)
                 .OrderByDescending(e => e.From);
         }
+
+        public Education GetById(int id)
+        {
+            return this.educations
+                .All()
+                .Where(e => e.Id == id)
+                .FirstOrDefault();
+        }
+
+        public void Update()
+        {
+            this.educations.SaveChanges();
+        }
     }
 }

@@ -1,0 +1,45 @@
+﻿@model CvSystem.Web.ViewModels.Add.EducationIdViewModel
+
+@{
+    ViewBag.Title = "AddCourse";
+}
+
+<br />
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            Course name
+        </div>
+        <div class="col-md-9">
+            <input type="text" data-type="name" />
+        </div>
+    </div>
+    <div class="to-add">
+    </div>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-6">
+            <button class="add">Add more courses</button>
+        </div>
+        <div class="col-md-6">
+            <input type="submit" id="save" />
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $('.add').click(function () {
+            $('.to-add').append("<div class='col-md-8 col-md-offset-2 form-group'><div class='col-md-3'>Course name</div><div class='col-md-9'><input type='text' data-type='name' /></div></div>");
+        });
+        $('#save').click(function () {
+            var coursesNames = $('input[data-type="name"]').map(function(i,v) {
+                return $(this).val();
+            }).toArray();
+            $.post("/Home/AddCourse",
+                { educationId: @Model.Id, courses: coursesNames },
+                function (data) {
+                    window.location.href = data.Url;
+                });
+        });
+    </script>
+}

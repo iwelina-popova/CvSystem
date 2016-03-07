@@ -2,7 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    using AutoMapper;
+
     using CvSystem.Common.ErrorConstants;
     using CvSystem.Common.ModelsConstants;
     using CvSystem.Data.Models;
@@ -41,5 +41,7 @@
         public DateTime From { get; set; }
 
         public DateTime? To { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

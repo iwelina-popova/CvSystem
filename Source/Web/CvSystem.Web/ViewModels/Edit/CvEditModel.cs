@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace CvSystem.Web.ViewModels.Edit
+﻿namespace CvSystem.Web.ViewModels.Edit
 {
+    using System.Collections.Generic;
+
     public class CvEditModel
     {
         public PersonalInfoEditModel PersonalInfo { get; set; }

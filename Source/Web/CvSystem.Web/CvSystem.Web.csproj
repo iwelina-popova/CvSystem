@@ -207,6 +207,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Add\CourseInputModel.cs" />
+    <Compile Include="ViewModels\Add\EducationIdViewModel.cs" />
+    <Compile Include="ViewModels\Add\EducationInputModel.cs" />
     <Compile Include="ViewModels\Cv\HistoryViewModel.cs" />
     <Compile Include="ViewModels\Edit\CertificationEditModel.cs" />
     <Compile Include="ViewModels\Edit\CourseEditModel.cs" />
@@ -287,6 +290,8 @@
     <Content Include="Views\Shared\EditorTemplates\CourseEditModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\PersonalInfoEditModel.cshtml" />
     <Content Include="Views\Shared\_Notifications.cshtml" />
+    <Content Include="Views\Home\AddEducation.cshtml" />
+    <Content Include="Views\Home\AddCourse.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

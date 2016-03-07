@@ -7,6 +7,7 @@
     using CvSystem.Data.Models;
     using CvSystem.Services.Data.Contracts;
     using CvSystem.Web.Infrastructure.Mapping;
+    using CvSystem.Web.ViewModels.Add;
     using CvSystem.Web.ViewModels.Cv;
     using CvSystem.Web.ViewModels.Edit;
     using CvSystem.Web.ViewModels.Home;
@@ -114,7 +115,7 @@
 
             this.SetCv(newCv.Id);
 
-            return this.RedirectToAction("Index");
+            return this.View("AddEducation", new EducationInputModel());
         }
 
         /// <summary>
@@ -152,6 +153,38 @@
 
             var viewModel = this.GetIndexModel(cv);
             return this.View("Index", viewModel);
+        }
+
+        public ActionResult AddEducation(EducationInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            var cv = this.cvs.GetChoosen().FirstOrDefault();
+            var education = this.Mapper.Map<Education>(model);
+
+            cv.Educations.Add(education);
+            this.cvs.Update();
+
+            return this.View("AddCourse", new EducationIdViewModel() { Id = education.Id });
+        }
+
+        public ActionResult AddCourse(int educationId, string[] courses)
+        {
+            var coursesList = new List<Course>();
+            foreach (var course in courses)
+            {
+                coursesList.Add(new Course() { CourseName = course });
+            }
+
+            var education = this.educations.GetById(educationId);
+            education.Courses = coursesList;
+            this.educations.Update();
+
+            var url = "CvsHistory";
+            return this.Json(new { Url = url });
         }
 
         private IndexViewModel GetIndexModel(CurriculumVitae cv)

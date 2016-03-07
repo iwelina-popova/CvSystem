@@ -7,5 +7,9 @@
     public interface IEducationsService
     {
         IQueryable<Education> GetByCvId(int cvId);
+
+        Education GetById(int id);
+
+        void Update();
     }
 }

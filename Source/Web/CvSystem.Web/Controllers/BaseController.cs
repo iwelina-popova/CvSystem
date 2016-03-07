@@ -18,5 +18,13 @@
                 return AutoMapperConfig.Configuration.CreateMapper();
             }
         }
+
+        protected string GetDefaultUrl
+        {
+            get
+            {
+                return this.Url.RouteCollection[0].ToString();
+            }
+        }
     }
 }
