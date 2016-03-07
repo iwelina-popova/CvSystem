@@ -15,5 +15,7 @@
             ErrorMessage = ModelValidationError.ValidationErrorForRange,
             MinimumLength = CourseConstants.CourseNameMinLength)]
         public string CourseName { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

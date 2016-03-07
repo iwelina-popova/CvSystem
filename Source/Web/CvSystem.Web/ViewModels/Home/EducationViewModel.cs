@@ -28,7 +28,7 @@
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Education, EducationViewModel>()
-                .ForMember(m => m.Courses, opt => opt.MapFrom(m => m.Courses.Select(c => c.CourseName)));
+                .ForMember(m => m.Courses, opt => opt.MapFrom(m => m.Courses.Where(c => !c.IsDeleted).Select(c => c.CourseName)));
         }
     }
 }

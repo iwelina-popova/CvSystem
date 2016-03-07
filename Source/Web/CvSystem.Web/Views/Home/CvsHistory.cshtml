@@ -33,7 +33,7 @@
            .SetWidth(30)
            .RenderValueAs(d =>
         @<b>
-            @Html.ActionLink("View", "ViewCv", new { id = d.Id }, new { @class = "btn btn-info" })
+            @Html.ActionLink("View", "ViewCv", new { id = d.Id }, new { @class = "btn btn-info", target = "_blank" })
             @Html.ActionLink("Edit", "CreateCv", new { id = d.Id }, new { @class = "btn btn-warning" })
             @Html.ActionLink("Set", "SetCv", new { id = d.Id }, new { @class = "btn btn-success" })
         </b>

@@ -1,7 +1,10 @@
 ﻿@model CvSystem.Web.ViewModels.Edit.CourseEditModel
 
-<div class="col-md-8 col-md-offset-2">
+<div class="col-md-9">
     @Html.ValidationMessageFor(m => m.CourseName, "", new { @class = "text-danger" })
     @Html.TextBoxFor(m => m.CourseName, new { @class = "form-control" })
+</div>
+<div class="col-md-3">
+    @Html.EditorFor(m => m.IsDeleted)
 </div>
 

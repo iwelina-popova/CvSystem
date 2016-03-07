@@ -50,6 +50,8 @@
         @Html.LabelFor(m => m.To, new { @class = "control-label" })
     </div>
     <div class="col-md-9">
+        @Html.ValidationMessageFor(m => m.To, "", new { @class = "text-danger" })
+        @Html.TextBoxFor(m => m.To, new { @class = "form-control datepicker" })
     </div>
 </div>
 <div class="col-md-8 col-md-offset-2">

@@ -63,12 +63,15 @@
     </div>
 </div>
 <div class="col-md-8 col-md-offset-2 form-group">
-    <div class="col-md-3">
+    <div class="col-md-9">
         @Html.LabelFor(m => m.Courses, new { @class = "control-label" })
+    </div>
+    <div class="col-md-3">
+        Delete
     </div>
     @for (int i = 0; i < Model.Courses.Count; i++)
     {
-        @Html.EditorFor(m => m.Courses[i])
+            @Html.EditorFor(m => m.Courses[i])
     }
 </div>
 <div class="col-md-8 col-md-offset-2">
