@@ -1,0 +1,79 @@
+﻿@model CvSystem.Web.ViewModels.Edit.EducationEditModel
+
+<div class="col-md-8 col-md-offset-2 form-group">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.School, new { @class = "control-label" })
+    </div>
+    <div class="col-md-9">
+        @Html.ValidationMessageFor(m => m.School, "", new { @class = "text-danger" })
+        @Html.TextBoxFor(m => m.School, new { @class = "form-control" })
+    </div>
+</div>
+<div class="col-md-8 col-md-offset-2 form-group">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.From, new { @class = "control-label" })
+    </div>
+    <div class="col-md-9">
+        @Html.DropDownListFor(
+               m => m.From,
+               Enumerable.Range(DateTime.UtcNow.Year - 100, 110)
+                         .Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString(), Selected = i == Model.From ? true : false })
+                         .OrderByDescending(i => i.Value), " - ")
+    </div>
+</div>
+<div class="col-md-8 col-md-offset-2 form-group">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.To, new { @class = "control-label" })
+    </div>
+    <div class="col-md-9">
+        @Html.DropDownListFor(
+               m => m.To,
+               Enumerable.Range(DateTime.UtcNow.Year - 100, 110)
+                         .Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString(), Selected = i == Model.To ? true : false })
+                         .OrderByDescending(i => i.Value), " - ")
+    </div>
+</div>
+<div class="col-md-8 col-md-offset-2 form-group">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.Degree, new { @class = "control-label" })
+    </div>
+    <div class="col-md-9">
+        @Html.DropDownListFor(
+                        m => m.Degree,
+                        EnumHelper.GetSelectList(typeof(CvSystem.Data.Models.Degree), Model.Degree),
+                        new { @class = "custom-dropdown" }).
+    </div>
+</div>
+<div class="col-md-8 col-md-offset-2 form-group">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.FieldOfStudy, new { @class = "control-label" })
+    </div>
+    <div class="col-md-9">
+        @Html.ValidationMessageFor(m => m.FieldOfStudy, "", new { @class = "text-danger" })
+        @Html.TextBoxFor(m => m.FieldOfStudy, new { @class = "form-control" })
+    </div>
+</div>
+<div class="col-md-8 col-md-offset-2 form-group">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+    </div>
+    <div class="col-md-9">
+        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+    </div>
+</div>
+<div class="col-md-8 col-md-offset-2 form-group">
+    <div class="col-md-3">
+        @Html.LabelFor(m => m.Courses, new { @class = "control-label" })
+    </div>
+    @for (int i = 0; i < Model.Courses.Count; i++)
+    {
+        @Html.EditorFor(m => m.Courses[i])
+    }
+</div>
+<div class="col-md-8 col-md-offset-2">
+    <hr />
+</div>
+
+
+

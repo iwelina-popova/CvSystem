@@ -1,0 +1,33 @@
+﻿@model CvSystem.Web.ViewModels.Edit.CvEditModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<br />
+@using (Html.BeginForm("CreateCv", "Home", FormMethod.Post, new { role = "form" }))
+{
+    @Html.EditorFor(m => m.PersonalInfo)
+    <hr />
+
+    <div class="row">
+        <h2 class="text-center">Edit Education Information</h2>
+        @for (var i = 0; i < Model.Education.Count; i++)
+        {
+            @Html.EditorFor(m => m.Education[i])
+        }
+    </div>
+    <hr />
+
+    <div class="row">
+        <h2 class="text-center">Edit Certifications Information</h2>
+        @for (var i = 0; i < Model.Certification.Count; i++)
+        {
+            @Html.EditorFor(m => m.Certification[i])
+        }
+    </div>
+
+    <input type="submit" value="Save" class="btn btn-success" />
+}
+
+
+

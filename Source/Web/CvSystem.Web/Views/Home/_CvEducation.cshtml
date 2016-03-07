@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CvSystem.Web.ViewModels.Home.EducationViewModel>
+
+<div class="row">
+    <div class="col-md-3">
+        <h4>Education</h4>
+    </div>
+    <div class="col-md-9">
+        @foreach (var education in Model)
+        {
+            <h2><b>@education.School</b></h2>
+            <h4>@education.From - @education.To</h4>
+            <h3>@education.Degree, @education.FieldOfStudy</h3>
+            if (!string.IsNullOrWhiteSpace(education.Description))
+            {
+                <p>@education.Description</p>
+            }
+
+            if (education.Courses != null)
+            {
+                <h3><b>Courses:</b></h3>
+                <ul>
+                    @foreach (var course in education.Courses)
+                    {
+                    <li><h4>@course</h4></li>
+                    }
+                </ul>
+            }
+            <hr />
+        }
+    </div>
+</div>

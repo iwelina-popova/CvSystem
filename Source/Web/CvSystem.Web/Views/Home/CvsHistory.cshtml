@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CvSystem.Web.ViewModels.Cv.HistoryViewModel>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_LayoutGridmvc.cshtml";
+}
+
+<div class="jumbotron">
+    <div class="text-center">
+        <h2>CV History</h2>
+
+    </div>
+</div>
+
+@Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(c => c.Id)
+           .Titled("Id")
+           .SetWidth(70);
+
+    columns.Add(c => c.IsChoosen)
+           .Titled("Is Choosen One")
+           .SetWidth(100);
+
+    columns.Add(c => c.CreatedOn)
+           .Titled("Created on")
+           .SetWidth(100);
+
+    columns.Add()
+           .Encoded(false)
+           .Sanitized(false)
+           .SetWidth(30)
+           .RenderValueAs(d =>
+        @<b>
+            @Html.ActionLink("View", "ViewCv", new { id = d.Id }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Edit", "CreateCv", new { id = d.Id }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Set", "SetCv", new { id = d.Id }, new { @class = "btn btn-success" })
+        </b>
+           );
+
+}).WithPaging(10).Sortable().Filterable().WithMultipleFilters()
+
+<br />

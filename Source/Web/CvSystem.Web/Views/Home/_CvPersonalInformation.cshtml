@@ -1,0 +1,44 @@
+﻿@model CvSystem.Web.ViewModels.Home.CvViewModel
+
+<div class="row">
+    <div class="col-md-3">
+        <h4>Personal Information</h4>
+    </div>
+    <div class="col-md-9">
+        <h2>@Model.FirstName @Model.LastName</h2>
+        <h4>@Model.Address, @Model.City, @Model.Country</h4>
+        <h4>Email: @Model.Email</h4>
+        @if (!string.IsNullOrWhiteSpace(Model.Telephone))
+            {
+            <h4>Phone: @Model.Telephone</h4>
+        }
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-3">
+        <h4>Social Network</h4>
+    </div>
+    <div class="col-md-9">
+        @if (!string.IsNullOrWhiteSpace(Model.Website))
+        {
+            <a href="@Model.Website"><h4>Website: @Model.Website</h4></a>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.Skype))
+        {
+            <h4>Skype: @Model.Skype</h4>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.Facebook))
+        {
+            <a href="@Model.Facebook"><h4>Facebook: @Model.Facebook</h4></a>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.LinkedIn))
+        {
+            <a href="@Model.LinkedIn"><h4>LinkedIn: @Model.LinkedIn</h4></a>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.GitHub))
+        {
+            <a href="@Model.GitHub"><h4>GitHub: @Model.GitHub</h4></a>
+        }
+    </div>
+</div>

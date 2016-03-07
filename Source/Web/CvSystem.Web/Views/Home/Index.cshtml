@@ -1,0 +1,17 @@
+﻿@model CvSystem.Web.ViewModels.Home.IndexViewModel
+
+<br />
+@{ 
+    if(Model == null)
+    {
+        @Html.Partial("_NoCvs")
+    }
+    else
+    {
+        @Html.Partial("_CvPersonalInformation", Model.PersonalInfo)
+        <hr />
+        @Html.Partial("_CvEducation", Model.Education)
+        <hr />
+        @Html.Partial("_CvCertification", Model.Certificates)
+    }
+}

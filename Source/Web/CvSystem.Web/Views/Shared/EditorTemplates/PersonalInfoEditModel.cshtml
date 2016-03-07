@@ -1,0 +1,118 @@
+﻿@model CvSystem.Web.ViewModels.Edit.PersonalInfoEditModel
+
+<div class="row">
+    <h2 class="text-center">Edit Personal Information</h2>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.FirstName, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.LastName, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.Address, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.City, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.Country, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.Telephone, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.Telephone, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.Telephone, new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <h2 class="text-center">Edit Social Network Information</h2>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.Website, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.Website, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.Website, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.Skype, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.Skype, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.Skype, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.Facebook, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.Facebook, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.Facebook, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.LinkedIn, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.LinkedIn, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.LinkedIn, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 form-group">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.GitHub, new { @class = "control-label" })
+        </div>
+        <div class="col-md-9">
+            @Html.ValidationMessageFor(m => m.GitHub, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(m => m.GitHub, new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+

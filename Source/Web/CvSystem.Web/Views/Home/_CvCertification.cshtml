@@ -1,0 +1,24 @@
+﻿@model IEnumerable<CvSystem.Web.ViewModels.Home.CertificationViewModel>
+
+<div class="row">
+    <div class="col-md-3">
+        <h4>Certifications</h4>
+    </div>
+    <div class="col-md-9">
+        @foreach (var certification in Model)
+        {
+            <a href="@certification.CertificateUrl"><h2>@certification.CertificateName</h2></a>
+            <h4>@certification.Authority</h4>
+            if (!string.IsNullOrWhiteSpace(certification.LicenseNumber))
+            {
+                <h4>License @certification.LicenseNumber</h4>
+            }
+            <h4>Starting @certification.From</h4>
+            if (certification.To != null)
+            {
+                <h4>To @certification.To</h4>
+            }
+            <hr />
+        }
+    </div>
+</div>
